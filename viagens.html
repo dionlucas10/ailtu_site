@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="icon" type="image/png" href="IMG/logo/logo.png">
+    <link rel="stylesheet" href="viagens.css">
+    <title>AILTUR TURISMO</title>
+</head>
+<body>
+    <header>
+        <nav class="menu-lateral" aria-label="Menu principal">
+            <div class="btn-expandir">
+                <img class="logo" src="IMG/logo/logo.png" alt="Logo Ailtur Turismo">
+                <button type="button" aria-label="Expandir menu" id="btn-exp" class="menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <ul>
+                <li class="item-menu ativo">
+                    <a href="index.html" aria-current="page">
+                        <span class="txt-link">HOME</span>
+                        <i class="bi bi-house-fill"></i>
+                    </a>
+                    <li class="item-menu">
+                        <a href="viagens.html">
+                            <span class="txt-link">VIAGENS</span>
+                            <i class="bi bi-airplane-fill"></i>
+                        </a>
+                    </li>
+                </li>
+                <li class="item-menu">
+                    <a href="index.html#quem-somos">
+                        <span class="txt-link">SOBRE NÓS</span>
+                        <i class="bi bi-person-fill"></i>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="index.html#contato">
+                        <span class="txt-link">CONTATO</span>
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="titulo-viagens">
+        <h1>Viagens</h1>
+    </div>
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><a href="https://api.whatsapp.com/send/?phone=5598981906414&text&type=phone_number&app_absent=0" target="_blank"><img src="IMG/Slide_viagens/slide1.png" alt=""></a></div>
+          <div class="swiper-slide"><a href="https://api.whatsapp.com/send/?phone=5598981906414&text&type=phone_number&app_absent=0" target="_blank"><img src="IMG/Slide_viagens/slide2.png" alt=""></a></div>
+          <div class="swiper-slide"><a href="https://api.whatsapp.com/send/?phone=5598981906414&text&type=phone_number&app_absent=0" target="_blank"><img src="IMG/Slide_viagens/slide3.png" alt=""></a></div>
+          <div class="swiper-slide"><a href="https://api.whatsapp.com/send/?phone=5598981906414&text&type=phone_number&app_absent=0" target="_blank"><img src="IMG/Slide_viagens/slide4.png" alt=""></a></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="outras-viagens">
+        <h1>Outras viagens</h1>
+      </div>
+
+      <div class="swiper swipermj">
+        <div class="swiper-wrapper" id="outras-viagens-wrapper">
+          <!-- As imagens serão inseridas aqui via JS -->
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="clientes-section">
+        <h1>Nossos Clientes</h1>
+        <div class="carrossel-controles">
+          <button class="btn-controle prev-btn" aria-label="Slide anterior">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <div class="clientes-swiper-main">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="cliente-card">
+                  <img src="IMG/clientes/cliente1.jpg" alt="Foto do cliente 1">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="cliente-card">
+                  <img src="IMG/clientes/cliente 2.jpg" alt="Foto do cliente 2">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="cliente-card">
+                  <img src="IMG/clientes/cliente3.jpg" alt="Foto do cliente 3">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="cliente-card">
+                  <img src="IMG/clientes/cliente4.jpg" alt="Foto do cliente 4">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="cliente-card">
+                  <img src="IMG/clientes/cliente5.jpg" alt="Foto do cliente 5">
+                </div>
+              </div>  
+              <div class="swiper-slide">
+                <div class="cliente-card">
+                  <img src="IMG/clientes/cliente6.jpg" alt="Foto do cliente 6">
+                </div>
+              </div>  
+              <div class="swiper-slide">
+                <div class="cliente-card">
+                  <img src="IMG/clientes/cliente7.jpg" alt="Foto do cliente 7">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="cliente-card">
+                  <img src="IMG/clientes/cliente8.jpg" alt="Foto do cliente 8">
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <button class="btn-controle next-btn" aria-label="Próximo slide">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container" id="contato">
+            <div class="footer-logo">
+                <img src="IMG/logo/logo.png" alt="Logo Ailtur Turismo">
+            </div>
+            <div class="footer-contato">
+                <h4>Contato</h4>
+                <ul>
+                    <li><i class="bi bi-telephone-fill"></i> (98) 98190-6414</li>
+                    <li><i class="bi bi-envelope-fill"></i> Ailturturismooficial@gmail.com</li>
+                    <li><i class="bi bi-geo-alt-fill"></i> Rua Deputado Raimundo Leal S/N - São Luís/MA</li>
+                </ul>
+            </div>
+            <div class="footer-redes">
+                <h4>Redes Sociais</h4>
+                <div class="footer-social-icons">
+                    <a href="https://www.instagram.com/ailturturismooficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        target="_blank" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="#" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=5598981906414&text&type=phone_number&app_absent=0"
+                        target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copy">
+            &copy; 2024 Ailtur Turismo. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="viagens.js"></script>
+    <script src="carrosel.js"></script>
+    <script src="outras-viagens.js"></script>
+    
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          spaceBetween: 30,
+          centeredSlides: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+
+        var swiper2 = new Swiper(".swipermj", {
+            slidesPerView: 3,
+            spaceBetween: 10,
+            pagination: {
+                el: ".swiper-pagination",   
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+                }
+            }
+        });
+
+        var swiperClientes = new Swiper(".clientes-swiper-main", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".next-btn",
+                prevEl: ".prev-btn",
+                enabled: true,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            }
+        });
+
+        // Adicionar eventos de clique para os botões
+        document.querySelector('.prev-btn').addEventListener('click', function() {
+            swiperClientes.slidePrev();
+        });
+
+        document.querySelector('.next-btn').addEventListener('click', function() {
+            swiperClientes.slideNext();
+        });
+
+    </script>
+</body>
+</html>

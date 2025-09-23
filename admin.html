@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin - Viagens</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body { background: #f5f5f5; }
+    .container { max-width: 800px; margin: 40px auto; background: #fff; padding: 32px; border-radius: 8px; box-shadow: 0 2px 8px #0001; }
+    .img-thumb { width: 120px; height: 80px; object-fit: cover; border-radius: 4px; }
+    .img-list { display: flex; flex-wrap: wrap; gap: 24px; }
+    .img-card { border: 1px solid #eee; border-radius: 8px; padding: 12px; background: #fafafa; width: 220px; }
+    .img-card .btn { margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="mb-4">Painel Administrativo - Viagens</h2>
+    <form id="formUpload" class="mb-4">
+      <div class="row g-2 align-items-end">
+        <div class="col-md-10">
+          <label for="imagem" class="form-label">Imagem</label>
+          <input type="file" class="form-control" id="imagem" name="imagem" accept="image/*" required>
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-success w-100">Adicionar</button>
+        </div>
+      </div>
+      <div id="uploadMsg" class="mt-2 text-danger" style="display:none;"></div>
+    </form>
+    <h4>Viagens cadastradas</h4>
+    <div id="viagens" class="img-list mt-3"></div>
+  </div>
+  <script>
+    async function carregarViagens() {
+      const viagensDiv = document.getElementById('viagens');
+      viagensDiv.innerHTML = 'Carregando...';
+      try {
+        const resp = await fetch('https://ailtur-turismos-server.onrender.com/api/viagens');
+        const viagens = await resp.json();
+        if (!Array.isArray(viagens)) throw new Error('Erro ao carregar viagens');
+        if (viagens.length === 0) {
+          viagensDiv.innerHTML = '<p>Nenhuma viagem cadastrada.</p>';
+          return;
+        }
+        viagensDiv.innerHTML = '';
+        viagens.forEach(v => {
+          const card = document.createElement('div');
+          card.className = 'img-card';
+          card.innerHTML = `
+            <img src="/upload/${v.imagem}" class="img-thumb mb-2" alt="Imagem da viagem">
+            <button class="btn btn-danger btn-sm" onclick="deletarViagem(${v.id})">Deletar</button>
+          `;
+          viagensDiv.appendChild(card);
+        });
+      } catch (err) {
+        viagensDiv.innerHTML = '<span class="text-danger">Erro ao carregar viagens</span>';
+      }
+    }
+
+    async function deletarViagem(id) {
+      if (!confirm('Tem certeza que deseja deletar esta viagem?')) return;
+      try {
+        const resp = await fetch(`https://ailtur-turismos-server.onrender.com/api/viagens/${id}`, { method: 'DELETE' });
+        const data = await resp.json();
+        if (data.sucesso) {
+          carregarViagens();
+        } else {
+          alert('Erro ao deletar viagem');
+        }
+      } catch (err) {
+        alert('Erro ao deletar viagem');
+      }
+    }
+
+    document.getElementById('formUpload').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch('https://ailtur-turismos-server.onrender.com/api/viagens', {
+          method: 'POST',
+          body: formData,
+          credentials: 'include' // ESSENCIAL para upload autenticado
+        });
+
+        if (!res.ok) {
+          throw new Error('Erro no upload');
+        }
+
+        document.getElementById('uploadMsg').style.display = 'none';
+        form.reset();
+        carregarViagens(); // Atualiza lista de viagens
+      } catch (err) {
+        const msg = document.getElementById('uploadMsg');
+        msg.innerText = 'Falha ao enviar imagem.';
+        msg.style.display = 'block';
+      }
+    });
+
+    carregarViagens();
+  </script>
+</body>
+</html> 
